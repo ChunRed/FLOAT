@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fog Socket</title>
+    <style>
+     
+      #b{position:fixed; width: 60%; height: 60%; top:20%; left: 20%; background: rgb(130, 224, 255);}
+      #v{position:fixed;  top:10%; left: 50%;  color:black; font-size:50px;}
+      .noscroll { overflow: hidden;}
+
+      .overlay { position: fixed; overflow-y: scroll;inset: 0; }
+
+      [aria-hidden="true"]  { display: none; }
+      
+      
+      [aria-hidden="false"] { display: block; }
+    </style>
+
+    <meta charset="utf-8" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  </head>
+
+
+
+<script>
+  $(function () {
+    var socket = io();
+    var clickValue = 0;
+
+    $('#b').click(function(){
+      clickValue += 1;
+        
+      socket.emit('value', clickValue);
+        
+    });
+
+    socket.on('value', function(data){
+      clickValue = data;
+      $('#v').text(data);
+    });
+  });
+
+  
+
+</script>
+  <body>
+
+    <button id="b">click me</button>
+    <div id="v">0</div>
+    <slider></slider>
+    
+  </body>
+</html>

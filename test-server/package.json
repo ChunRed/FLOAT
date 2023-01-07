@@ -1,0 +1,9 @@
+{
+  "name": "socket.io-unity-test-server",
+  "version": "0.0.1",
+  "description": "test server in node.js for socket.io-unity",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^2.4.1"
+  }
+}
